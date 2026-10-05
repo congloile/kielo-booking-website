@@ -1,0 +1,372 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  color: #111;
+  background: #F7F4F1;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.landing {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.info-panel {
+  position: relative;
+  min-height: 100vh;
+  padding: 46px 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.brand {
+  margin-top: 40px;
+}
+.language-switch {
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.language-switch span {
+  opacity: 0.35;
+  margin: 0 6px;
+}
+
+.language-switch a {
+  text-decoration: none;
+  opacity: 0.45;
+  transition: opacity 0.25s ease;
+}
+
+.language-switch a:hover {
+  opacity: 0.75;
+}
+
+.language-switch a.active {
+  opacity: 1;
+}
+
+.logo-image {
+  width: 235px;
+  height: auto;
+  display: block;
+}
+
+.studio-info {
+  margin-top: 14vh;
+  font-size: 1rem;
+  line-height: 1.45;
+}
+.studio-info a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.studio-info a:hover {
+  opacity: 0.6;
+}
+
+.label {
+  margin-top: 24px;
+  margin-bottom: 5px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: bold;
+}
+
+.bottom-info {
+  position: absolute;
+  left: 64px;
+  bottom: 24px;
+  text-align: left;
+  font-size: 0.68rem;
+  line-height: 2;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+.bottom-info p {
+  opacity: 0.82;
+}
+.bottom-info a {
+  text-decoration: none;
+  transition: opacity 0.25s ease;
+}
+
+.bottom-info a:hover {
+  opacity: 0.6;
+}
+
+
+.image-panel {
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.image-panel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.image-panel {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  display: block;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.image-panel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease, filter 0.8s ease;
+}
+
+.image-cta {
+  position: absolute;
+  left: 48px;
+  bottom: 48px;
+  z-index: 2;
+  color: white;
+  font-family: Arial, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: 0.35s ease;
+}
+
+.image-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  transition: 0.35s ease;
+}
+
+.image-panel:hover img {
+  transform: scale(1.025);
+  filter: brightness(0.9);
+}
+
+.image-panel:hover .image-cta {
+  opacity: 1;
+  transform: translateY(0);
+}
+.brand-tagline {
+  margin-top: 18px;
+  font-size: 0.65rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #7f8570;
+}
+.booking-link {
+  text-decoration: none;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  transition: opacity 0.25s ease;
+}
+
+.booking-link:hover {
+  opacity: 0.6;
+}
+
+.mobile-sticky-cta {
+  display: none;
+}
+
+.cookie-banner {
+  position: fixed;
+  left: 24px;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1000;
+
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 18px 24px;
+
+  background: #ffffff;
+  color: #111;
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
+
+  display: none;
+  gap: 18px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cookie-banner.show {
+  display: flex;
+}
+
+.cookie-banner p {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: rgba(17, 17, 17, 0.72);
+}
+
+.cookie-actions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.cookie-actions button {
+  border: 1px solid rgba(17, 17, 17, 0.18);
+  background: transparent;
+  padding: 9px 14px;
+
+  font-family: inherit;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+}
+
+#cookie-accept {
+  background: #7f8570;
+  color: #f7f4f1;
+  border-color: #7f8570;
+}
+
+#cookie-decline {
+    color: #7a7a7a;
+    background: white;
+}
+
+
+/* Mobile */
+@media (max-width: 800px) {
+  .landing {
+    grid-template-columns: 1fr;
+  }
+
+  .info-panel {
+    min-height: auto;
+    padding: 40px 28px 54px;
+  }
+
+  .studio-info {
+    margin-top: 80px;
+  }
+
+  .bottom-info,
+  .links {
+    position: static;
+  }
+
+  .bottom-info {
+    margin-top: 90px;
+    text-align: center;
+  }
+
+  .links {
+    margin-top: 50px;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .language-switch {
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+  .image-panel {
+    min-height: 70vh;
+    order: -1;
+  }
+   .image-cta {
+    opacity: 1;
+    transform: none;
+    left: 28px;
+    bottom: 32px;
+  }
+
+  .image-panel {
+    min-height: 70vh;
+    order: -1;
+  }
+  .logo-image {
+  width: 200px;
+  height: auto;
+  display: block;
+  
+}
+ .appointment-block {
+    display: none;
+}
+  .mobile-sticky-cta {
+    position: fixed;
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+    z-index: 999;
+
+    display: block;
+    padding: 14px 20px;
+
+    background: #7f8570;
+    color: #f7f4f1;
+    text-align: center;
+    text-decoration: none;
+
+    font-size: 0.75rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  body {
+    padding-bottom: 12px;
+  }
+
+  .cookie-banner {
+    left: 18px;
+    right: 18px;
+    bottom: 86px;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 12px;
+  }
+
+  .cookie-actions {
+    width: 100%;
+  }
+
+  .cookie-actions button {
+    flex: 1;
+  }
+
+}

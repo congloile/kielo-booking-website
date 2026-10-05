@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="images/kielo-favicon.png" />
+    <title>Admin | Kielo Beauty</title>
+    <link rel="stylesheet" href="admin.css" />
+  </head>
+
+  <body>
+    <button id="theme-toggle" class="theme-toggle">🌙</button>
+    <main class="admin-page">
+      <header class="admin-header">
+        <a href="index.html" class="book-nav-logo">
+          <img src="images/kielo-logo.png" alt="Kielo Beauty" />
+        </a>
+        <h1>Bookings Management</h1>
+      </header>
+      <section class="login-box" id="login-box">
+        <input id="admin-email" type="email" placeholder="Email" />
+        <input id="admin-password" type="password" placeholder="Password" />
+        <button id="login-button">Login</button>
+      </section>
+
+      <button id="logout-button" class="logout-button">Logout</button>
+      <section
+        class="manual-block-box"
+        id="manual-block-box"
+        style="display: none"
+      >
+        <h2>Block time manually</h2>
+
+        <div class="block-fields">
+          <input id="block-date" type="date" />
+          <input id="block-time" type="time" />
+
+          <select id="block-duration">
+            <option value="30">30 min</option>
+            <option value="60">1 hour</option>
+            <option value="90">1h 30min</option>
+            <option value="120">2 hours</option>
+            <option value="150">2h 30min</option>
+            <option value="180">3 hours</option>
+          </select>
+        </div>
+
+        <div class="block-buttons">
+          <button id="block-time-button">Block</button>
+          <button id="block-day-button">Block full day</button>
+          <button id="block-week-button">Block 1 week</button>
+        </div>
+      </section>
+
+      <section class="admin-stats" id="admin-stats" style="display: none">
+        <div class="stat-card active" data-status="all">
+          <span id="total-bookings">0</span>
+          <p>All bookings</p>
+        </div>
+
+        <div class="stat-card" data-status="confirmed">
+          <span id="confirmed-bookings">0</span>
+          <p>Confirmed</p>
+        </div>
+
+        <div class="stat-card" data-status="pending">
+          <span id="pending-bookings">0</span>
+          <p>Pending</p>
+        </div>
+
+        <div class="stat-card" data-status="cancelled">
+          <span id="cancelled-bookings">0</span>
+          <p>Cancelled</p>
+        </div>
+
+        <div class="dashboard-view-toggle">
+          <button class="view-filter" data-view="all">
+            <span class="filter-label">All</span>
+            <span class="filter-count"></span>
+          </button>
+
+          <button class="view-filter active" data-view="upcoming">
+            <span class="filter-label">Upcoming</span>
+            <span id="upcoming-count" class="filter-count"></span>
+          </button>
+
+          <button class="view-filter" data-view="past">
+            <span class="filter-label">Past</span>
+            <span id="past-count" class="filter-count"></span>
+          </button>
+        </div>
+      </section>
+
+      <section id="booking-list" class="booking-list"></section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="admin.js"></script>
+  </body>
+</html>
